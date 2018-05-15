@@ -1,0 +1,651 @@
+---------------------------
+sql: select inttype, doubletype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select floattype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select inttype, doubletype, floattype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:28 Expression not in GROUP BY key. Error encountered near token 'floattype'
+
+---------------------------
+sql: select distinct inttype, doubletype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select distinct floattype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select distinct inttype, doubletype, floattype from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select inttype, doubletype, count (inttype, inttype1) cnt, count (doubletype, doubletype1) cnt1, count (floattype, floattype1) cnt2 from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select inttype, doubletype, count (distinct inttype, inttype1) cnt, count (distinct doubletype, doubletype1) cnt1, count (distinct floattype, floattype1) cnt2 from (select * from orctbl where id>10) where inttype = inttype1 and doubletype = doubletype1 and floattype = floattype1 group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:350 Invalid table alias or column reference: (possible column names are: inttype, doubletype, cnt, cnt1, cnt2). Error encountered near token 'floattype'
+
+---------------------------
+sql: select inttype, doubletype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select floattype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select inttype, doubletype, floattype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:28 Expression not in GROUP BY key. Error encountered near token 'floattype'
+
+---------------------------
+sql: select distinct inttype, doubletype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select distinct floattype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select distinct inttype, doubletype, floattype from (select * from orctbl where id>10) where id>15 group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select inttype, doubletype, count (inttype, inttype1) cnt, count (doubletype, doubletype1) cnt1, count (floattype, floattype1) cnt2 from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select inttype, doubletype, count (distinct inttype, inttype1) cnt, count (distinct doubletype, doubletype1) cnt1, count (distinct floattype, floattype1) cnt2 from (select * from orctbl where id>10) where id>15 group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:281 Invalid table alias or column reference: (possible column names are: inttype, doubletype, cnt, cnt1, cnt2). Error encountered near token 'floattype'
+
+---------------------------
+sql: select inttype, doubletype from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select floattype from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select inttype, doubletype, floattype from (select * from orctbl where id>10) group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:28 Expression not in GROUP BY key. Error encountered near token 'floattype'
+
+---------------------------
+sql: select distinct inttype, doubletype from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by inttype, doubletype
+meta: 0,2
+exception: 
+-1437838612	0.0038551418719742214
+-10806459	0.9025921976578744
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select distinct floattype from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by floattype
+meta: 2
+exception: 
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select distinct inttype, doubletype, floattype from (select * from orctbl where id>10) group by inttype, doubletype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select inttype, doubletype, count (inttype, inttype1) cnt, count (doubletype, doubletype1) cnt1, count (floattype, floattype1) cnt2 from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select inttype, doubletype, count (distinct inttype, inttype1) cnt, count (distinct doubletype, doubletype1) cnt1, count (distinct floattype, floattype1) cnt2 from (select * from orctbl where id>10) group by inttype, doubletype, floattype order by inttype, doubletype, floattype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:269 Invalid table alias or column reference: (possible column names are: inttype, doubletype, cnt, cnt1, cnt2). Error encountered near token 'floattype'
+
+---------------------------
+sql: select decimaltype, stringtype from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select varchar32type from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:32 Expression not in GROUP BY key. Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select distinct decimaltype, stringtype from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select distinct varchar32type from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select decimaltype, stringtype, count (decimaltype, decimaltype1) cnt, count (stringtype, stringtype1) cnt1, count (varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select decimaltype, stringtype, count (distinct decimaltype, decimaltype1) cnt, count (distinct stringtype, stringtype1) cnt1, count (distinct varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) where decimaltype = decimaltype1 and stringtype = stringtype1 and varchar32type = varchar32type1 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:398 Invalid table alias or column reference: (possible column names are: decimaltype, stringtype, cnt, cnt1, cnt2). Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select decimaltype, stringtype from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select varchar32type from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:32 Expression not in GROUP BY key. Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select distinct decimaltype, stringtype from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select distinct varchar32type from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select decimaltype, stringtype, count (decimaltype, decimaltype1) cnt, count (stringtype, stringtype1) cnt1, count (varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select decimaltype, stringtype, count (distinct decimaltype, decimaltype1) cnt, count (distinct stringtype, stringtype1) cnt1, count (distinct varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) where id>15 group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:313 Invalid table alias or column reference: (possible column names are: decimaltype, stringtype, cnt, cnt1, cnt2). Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select decimaltype, stringtype from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select varchar32type from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:32 Expression not in GROUP BY key. Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select distinct decimaltype, stringtype from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype
+meta: 5,0
+exception: 
+-746376437.199064205	
+207469546.860312984	7NrOcCgiCB5cGfH
+207469546.860312984	Tha67IY90M
+207469546.860312984	VkiQW0IaZCNVws0P1mv
+207469546.860312984	u6rvX6qhGlEfcHaDnaVI
+207469546.860312984	ubjuLReAZ60IauOKUTxM
+207736893.1415650507	98C7HgSbCD56wsHSl7X2Iif
+2087469546.860312984	XLdV0xQdaGHTroBisrnnSHjspINJfH
+---------------------------
+sql: select distinct varchar32type from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by varchar32type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct decimaltype, stringtype, varchar32type from (select * from orctbl where id>10) group by decimaltype, stringtype order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select decimaltype, stringtype, count (decimaltype, decimaltype1) cnt, count (stringtype, stringtype1) cnt1, count (varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select decimaltype, stringtype, count (distinct decimaltype, decimaltype1) cnt, count (distinct stringtype, stringtype1) cnt1, count (distinct varchar32type, varchar32type1) cnt2 from (select * from orctbl where id>10) group by decimaltype, stringtype, varchar32type order by decimaltype, stringtype, varchar32type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:301 Invalid table alias or column reference: (possible column names are: decimaltype, stringtype, cnt, cnt1, cnt2). Error encountered near token 'varchar32type'
+
+---------------------------
+sql: select longtype, bytetype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select shorttype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+-4610
+-4610
+-4610
+4610
+---------------------------
+sql: select longtype, bytetype, shorttype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:27 Expression not in GROUP BY key. Error encountered near token 'shorttype'
+
+---------------------------
+sql: select distinct longtype, bytetype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select distinct shorttype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+4610
+---------------------------
+sql: select distinct longtype, bytetype, shorttype from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select longtype, bytetype, count (longtype, longtype1) cnt, count (bytetype, bytetype1) cnt1, count (shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select longtype, bytetype, count (distinct longtype, longtype1) cnt, count (distinct bytetype, bytetype1) cnt1, count (distinct shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) where longtype = longtype1 and bytetype = bytetype1 and shorttype = shorttype1 group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:343 Invalid table alias or column reference: (possible column names are: longtype, bytetype, cnt, cnt1, cnt2). Error encountered near token 'shorttype'
+
+---------------------------
+sql: select longtype, bytetype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select shorttype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+-4610
+-4610
+-4610
+4610
+---------------------------
+sql: select longtype, bytetype, shorttype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:27 Expression not in GROUP BY key. Error encountered near token 'shorttype'
+
+---------------------------
+sql: select distinct longtype, bytetype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select distinct shorttype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+4610
+---------------------------
+sql: select distinct longtype, bytetype, shorttype from (select * from orctbl where id>10) where id>15 group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select longtype, bytetype, count (longtype, longtype1) cnt, count (bytetype, bytetype1) cnt1, count (shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select longtype, bytetype, count (distinct longtype, longtype1) cnt, count (distinct bytetype, bytetype1) cnt1, count (distinct shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) where id>15 group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:276 Invalid table alias or column reference: (possible column names are: longtype, bytetype, cnt, cnt1, cnt2). Error encountered near token 'shorttype'
+
+---------------------------
+sql: select longtype, bytetype from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select shorttype from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+-4610
+-4610
+-4610
+4610
+---------------------------
+sql: select longtype, bytetype, shorttype from (select * from orctbl where id>10) group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:27 Expression not in GROUP BY key. Error encountered near token 'shorttype'
+
+---------------------------
+sql: select distinct longtype, bytetype from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by longtype, bytetype
+meta: 0,0
+exception: 
+3750840070694853067	-32
+3750840070694853067	-14
+3750840070694853067	106
+3750841070694853067	14
+7430659138651885987	16
+---------------------------
+sql: select distinct shorttype from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by shorttype
+meta: 0
+exception: 
+-4610
+4610
+---------------------------
+sql: select distinct longtype, bytetype, shorttype from (select * from orctbl where id>10) group by longtype, bytetype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select longtype, bytetype, count (longtype, longtype1) cnt, count (bytetype, bytetype1) cnt1, count (shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select longtype, bytetype, count (distinct longtype, longtype1) cnt, count (distinct bytetype, bytetype1) cnt1, count (distinct shorttype, shorttype1) cnt2 from (select * from orctbl where id>10) group by longtype, bytetype, shorttype order by longtype, bytetype, shorttype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:264 Invalid table alias or column reference: (possible column names are: longtype, bytetype, cnt, cnt1, cnt2). Error encountered near token 'shorttype'
+
+---------------------------
+sql: select booleantype, datetype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select timestamptype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select booleantype, datetype, timestamptype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestamptype'
+
+---------------------------
+sql: select distinct booleantype, datetype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select distinct timestamptype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct booleantype, datetype, timestamptype from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select booleantype, datetype, count (booleantype, booleantype1) cnt, count (datetype, datetype1) cnt1, count (timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select booleantype, datetype, count (distinct booleantype, booleantype1) cnt, count (distinct datetype, datetype1) cnt1, count (distinct timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) where booleantype = booleantype1 and datetype = datetype1 and timestamptype = timestamptype1 group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:384 Invalid table alias or column reference: (possible column names are: booleantype, datetype, cnt, cnt1, cnt2). Error encountered near token 'timestamptype'
+
+---------------------------
+sql: select booleantype, datetype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select timestamptype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select booleantype, datetype, timestamptype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestamptype'
+
+---------------------------
+sql: select distinct booleantype, datetype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select distinct timestamptype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct booleantype, datetype, timestamptype from (select * from orctbl where id>10) where id>15 group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select booleantype, datetype, count (booleantype, booleantype1) cnt, count (datetype, datetype1) cnt1, count (timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select booleantype, datetype, count (distinct booleantype, booleantype1) cnt, count (distinct datetype, datetype1) cnt1, count (distinct timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) where id>15 group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:303 Invalid table alias or column reference: (possible column names are: booleantype, datetype, cnt, cnt1, cnt2). Error encountered near token 'timestamptype'
+
+---------------------------
+sql: select booleantype, datetype from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select timestamptype from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select booleantype, datetype, timestamptype from (select * from orctbl where id>10) group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestamptype'
+
+---------------------------
+sql: select distinct booleantype, datetype from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by booleantype, datetype
+meta: 0,0
+exception: 
+false	2031-08-08
+---------------------------
+sql: select distinct timestamptype from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by timestamptype
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct booleantype, datetype, timestamptype from (select * from orctbl where id>10) group by booleantype, datetype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select booleantype, datetype, count (booleantype, booleantype1) cnt, count (datetype, datetype1) cnt1, count (timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select booleantype, datetype, count (distinct booleantype, booleantype1) cnt, count (distinct datetype, datetype1) cnt1, count (distinct timestamptype, timestamptype1) cnt2 from (select * from orctbl where id>10) group by booleantype, datetype, timestamptype order by booleantype, datetype, timestamptype
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:291 Invalid table alias or column reference: (possible column names are: booleantype, datetype, cnt, cnt1, cnt2). Error encountered near token 'timestamptype'
+

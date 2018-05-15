@@ -1,0 +1,516 @@
+---------------------------
+sql: select inttype, doubleType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType
+meta: 0,2
+exception: 
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having floatType>0 order by floatType
+meta: 2
+exception: 
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select inttype, doubleType, floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType having inttype>0 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:28 Expression not in GROUP BY key. Error encountered near token 'floatType'
+
+---------------------------
+sql: select inttype, doubleType from orctbl where id>15 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType
+meta: 0,2
+exception: 
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select floatType from orctbl where id>15 group by inttype, doubleType, floatType having floattype>0 order by floatType
+meta: 2
+exception: 
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select inttype, doubleType, floatType from orctbl where id>15 group by inttype, doubleType having inttype>0 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:28 Expression not in GROUP BY key. Error encountered near token 'floatType'
+
+---------------------------
+sql: select distinct inttype, doubleType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType
+meta: 0,2
+exception: 
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select distinct floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having floatType>0 order by floatType
+meta: 2
+exception: 
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select distinct inttype, doubleType, floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType having inttype>0 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct inttype, doubleType from orctbl where id>15 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType
+meta: 0,2
+exception: 
+166298794	0.5647112479442
+497043231	0.7464247223405551
+806515876	0.5647112479442
+806515876	0.7647112479442
+1419354378	0.5647112479442
+2025324926	0.5647112479442
+---------------------------
+sql: select distinct floatType from orctbl where id>15 group by inttype, doubleType, floatType having floattype>0 order by floatType
+meta: 2
+exception: 
+0.15766162
+0.2576616
+0.49688655
+---------------------------
+sql: select distinct inttype, doubleType, floatType from orctbl where id>15 group by inttype, doubleType having inttype>0 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select count(inttype, inttype1) cnt, count(doubleType, doubleType1) cnt1, count(floatType, floatType1) cnt2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select count(distinct inttype, inttype1) cnt, count(distinct doubleType, doubleType1) cnt1, count(distinct floatType, floatType1) cnt2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:284 Invalid table alias or column reference: (possible column names are: cnt, cnt1, cnt2). Error encountered near token 'inttype'
+
+---------------------------
+sql: select decimalType, longType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+207469546.860312984	3750840070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 0
+exception: 
+-32
+14
+-14
+16
+106
+---------------------------
+sql: select decimalType, longType, byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'byteType'
+
+---------------------------
+sql: select decimalType, longType from orctbl where id>15 group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+207469546.860312984	3750840070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select byteType from orctbl where id>15 group by decimalType, longType, byteType
+meta: 0
+exception: 
+-32
+14
+-14
+16
+106
+---------------------------
+sql: select decimalType, longType, byteType from orctbl where id>15 group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'byteType'
+
+---------------------------
+sql: select decimalType, longType from orctbl group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+207469546.860312984	3750840070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select byteType from orctbl group by decimalType, longType, byteType
+meta: 0
+exception: 
+-32
+14
+-14
+16
+106
+---------------------------
+sql: select decimalType, longType, byteType from orctbl group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'byteType'
+
+---------------------------
+sql: select distinct decimalType, longType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select distinct byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 0
+exception: 
+16
+-32
+-14
+14
+106
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct decimalType, longType from orctbl where id>15 group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select distinct byteType from orctbl where id>15 group by decimalType, longType, byteType
+meta: 0
+exception: 
+16
+-32
+-14
+14
+106
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl where id>15 group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct decimalType, longType from orctbl group by decimalType, longType, byteType
+meta: 5,0
+exception: 
+207736893.1415650507	3750840070694853067
+2087469546.860312984	3750841070694853067
+-746376437.199064205	7430659138651885987
+207469546.860312984	3750840070694853067
+---------------------------
+sql: select distinct byteType from orctbl group by decimalType, longType, byteType
+meta: 0
+exception: 
+16
+-32
+-14
+14
+106
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl group by decimalType, longType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select count(decimalType, decimalType1) cnt, count(longType, longType1) cnt1, count(byteType, byteType1) cnt2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select count(distinct decimalType, decimalType1) cnt, count(distinct longType, longType1) cnt1, count(distinct byteType, byteType1) cnt2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType
+meta: 
+exception: EXECUTION FAILED: Task MAPRED-SPARK error SparkException: [Error 1] Job aborted due to stage failure: Task 1 in stage 93741.0 failed 4 times, most recent failure: Lost task 1.3 in stage 93741.0 (TID 212698, 10.0.10.15): java.lang.ClassCastException: org.apache.hadoop.hive.serde2.io.HiveDecimalWritable cannot be cast to org.apache.hadoop.io.LongWritable
+
+---------------------------
+sql: select shortType, stringType from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	7NrOcCgiCB5cGfH
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	
+-4610	Tha67IY90M
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	VkiQW0IaZCNVws0P1mv
+---------------------------
+sql: select varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'varchar32Type'
+
+---------------------------
+sql: select shortType, stringType from orctbl where id>15 group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	7NrOcCgiCB5cGfH
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	
+-4610	Tha67IY90M
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	VkiQW0IaZCNVws0P1mv
+---------------------------
+sql: select varchar32Type from orctbl where id>15 group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl where id>15 group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'varchar32Type'
+
+---------------------------
+sql: select shortType, stringType from orctbl  group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	7NrOcCgiCB5cGfH
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	
+-4610	Tha67IY90M
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	VkiQW0IaZCNVws0P1mv
+---------------------------
+sql: select varchar32Type from orctbl  group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'varchar32Type'
+
+---------------------------
+sql: select distinct shortType, stringType from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	7NrOcCgiCB5cGfH
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	VkiQW0IaZCNVws0P1mv
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	Tha67IY90M
+-4610	
+---------------------------
+sql: select distinct varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct shortType, stringType from orctbl where id>15 group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	7NrOcCgiCB5cGfH
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	VkiQW0IaZCNVws0P1mv
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	Tha67IY90M
+-4610	
+---------------------------
+sql: select distinct varchar32Type from orctbl where id>15 group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl where id>15 group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct shortType, stringType from orctbl  group by shortType, stringType, varchar32Type
+meta: 0,0
+exception: 
+-4610	u6rvX6qhGlEfcHaDnaVI
+-4610	7NrOcCgiCB5cGfH
+-4610	98C7HgSbCD56wsHSl7X2Iif
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH
+-4610	VkiQW0IaZCNVws0P1mv
+-4610	ubjuLReAZ60IauOKUTxM
+-4610	Tha67IY90M
+-4610	
+---------------------------
+sql: select distinct varchar32Type from orctbl  group by shortType, stringType, varchar32Type
+meta: 0
+exception: 
+O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl group by shortType, stringType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select count(shortType, shortType1) cnt, count(stringType, stringType1) cnt1, count(varchar32Type, varchar32Type1) cnt2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select count(distinct shortType, shortType1) cnt, count(distinct stringType, stringType1) cnt1, count(distinct varchar32Type, varchar32Type1) cnt2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type
+meta: 
+exception: EXECUTION FAILED: Task MAPRED-SPARK error SparkException: [Error 1] Job aborted due to stage failure: Task 0 in stage 93869.0 failed 4 times, most recent failure: Lost task 0.3 in stage 93869.0 (TID 213841, 10.0.10.50): java.lang.ClassCastException: org.apache.hadoop.hive.serde2.io.ShortWritable cannot be cast to org.apache.hadoop.io.Text
+
+---------------------------
+sql: select dateType, booleanType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select timestampType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestampType'
+
+---------------------------
+sql: select dateType, booleanType from orctbl where id>15 group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select timestampType from orctbl where id>15 group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl where id>15 group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestampType'
+
+---------------------------
+sql: select dateType, booleanType from orctbl group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select timestampType from orctbl group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10025] Line 1:30 Expression not in GROUP BY key. Error encountered near token 'timestampType'
+
+---------------------------
+sql: select distinct dateType, booleanType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select distinct timestampType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct dateType, booleanType, timestampType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct dateType, booleanType from orctbl where id>15 group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select distinct timestampType from orctbl where id>15 group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct dateType, booleanType, timestampType from orctbl where id>15 group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct dateType, booleanType from orctbl group by dateType, booleanType, timestampType
+meta: 0,0
+exception: 
+2031-08-08	false
+---------------------------
+sql: select distinct timestampType from orctbl group by dateType, booleanType, timestampType
+meta: 0
+exception: 
+1992-01-21 22:14:13.0
+---------------------------
+sql: select distinct dateType, booleanType, timestampType from orctbl group by dateType, booleanType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select count(dateType, dateType1) cnt, count(booleanType, booleanType1) cnt1, count(timestampType, timestampType1) cnt2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10558] DISTINCT keyword must be specified
+
+---------------------------
+sql: select count(distinct dateType, dateType1) cnt, count(distinct booleanType, booleanType1) cnt1, count(distinct timestampType, timestampType1) cnt2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType
+meta: 
+exception: EXECUTION FAILED: Task MAPRED-SPARK error SparkException: [Error 1] Job aborted due to stage failure: Task 1 in stage 93992.0 failed 4 times, most recent failure: Lost task 1.3 in stage 93992.0 (TID 214966, 10.0.10.50): java.lang.ClassCastException: org.apache.hadoop.hive.serde2.io.DateWritable cannot be cast to org.apache.hadoop.io.BooleanWritable
+

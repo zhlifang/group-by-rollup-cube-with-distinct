@@ -1,0 +1,445 @@
+---------------------------
+sql: select inttype, doubleType, floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select inttype, doubleType, floatType from orctbl where id>15 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select inttype, doubleType, floatType from orctbl group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select distinct inttype, doubleType, floatType from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select distinct inttype, doubleType, floatType from orctbl where id>15 group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select distinct inttype, doubleType, floatType from orctbl group by inttype, doubleType, floatType having inttype>0 order by inttype, doubleType, floatType
+meta: 0,2,2
+exception: 
+166298794	0.5647112479442	0.15766162
+497043231	0.7464247223405551	0.15766162
+806515876	0.5647112479442	0.15766162
+806515876	0.7647112479442	0.2576616
+1419354378	0.5647112479442	0.15766162
+2025324926	0.5647112479442	0.15766162
+---------------------------
+sql: select inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	5	5	5	-7189193060	0.019275709359871107	2.4844327569007874	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	5	5	5	-54032295	4.512960988289372	0.7883080840110779	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	5	5	5	831493970	2.8235562397210003	0.7883080840110779	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	5	5	5	2485216155	3.7321236117027756	0.7883080840110779	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	5	5	5	4032579380	2.8235562397210003	0.7883080840110779	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	5	5	5	4032579380	3.823556239721	1.2883080542087555	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	5	5	5	7096771890	2.8235562397210003	0.7883080840110779	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	5	5	5	10126624630	2.8235562397210003	0.7883080840110779	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl where id>15 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	2	2	2	-2875677224	0.007710283743948443	0.9937731027603149	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	2	2	2	-21612918	1.8051843953157487	0.31532323360443115	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	2	2	2	332597588	1.1294224958884	0.31532323360443115	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	2	2	2	994086462	1.4928494446811102	0.31532323360443115	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	2	2	2	1613031752	1.1294224958884	0.31532323360443115	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	3	3	3	2419547628	2.2941337438326	0.7729848325252533	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	2	2	2	2838708756	1.1294224958884	0.31532323360443115	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	2	2	2	4050649852	1.1294224958884	0.31532323360443115	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	5	5	5	-7189193060	0.019275709359871107	2.4844327569007874	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	5	5	5	-54032295	4.512960988289372	0.7883080840110779	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	5	5	5	831493970	2.8235562397210003	0.7883080840110779	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	5	5	5	2485216155	3.7321236117027756	0.7883080840110779	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	5	5	5	4032579380	2.8235562397210003	0.7883080840110779	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	5	5	5	4032579380	3.823556239721	1.2883080542087555	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	5	5	5	7096771890	2.8235562397210003	0.7883080840110779	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	5	5	5	10126624630	2.8235562397210003	0.7883080840110779	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	5	5	5	-7189193060	0.019275709359871107	2.4844327569007874	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	5	5	5	-54032295	4.512960988289372	0.7883080840110779	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	5	5	5	831493970	2.8235562397210003	0.7883080840110779	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	5	5	5	2485216155	3.7321236117027756	0.7883080840110779	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	5	5	5	4032579380	2.8235562397210003	0.7883080840110779	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	5	5	5	4032579380	3.823556239721	1.2883080542087555	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	5	5	5	7096771890	2.8235562397210003	0.7883080840110779	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	5	5	5	10126624630	2.8235562397210003	0.7883080840110779	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl where id>15 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	2	2	2	-2875677224	0.007710283743948443	0.9937731027603149	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	2	2	2	-21612918	1.8051843953157487	0.31532323360443115	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	2	2	2	332597588	1.1294224958884	0.31532323360443115	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	2	2	2	994086462	1.4928494446811102	0.31532323360443115	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	2	2	2	1613031752	1.1294224958884	0.31532323360443115	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	3	3	3	2419547628	2.2941337438326	0.7729848325252533	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	2	2	2	2838708756	1.1294224958884	0.31532323360443115	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	2	2	2	4050649852	1.1294224958884	0.31532323360443115	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(inttype1) cnt, count(doubleType1) cnt1, count(floatType1) cnt2, sum(inttype1) s, sum(doubleType1) s1, sum(floatType1) s2, avg(inttype1) a, avg(doubleType1) a1, avg(floatType1) a2 from orctbl group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+-1437838612	0.0038551418719742214	0.49688655	5	5	5	-7189193060	0.019275709359871107	2.4844327569007874	-1.437838612E9	0.0038551418719742214	0.49688655138015747
+-10806459	0.9025921976578744	0.15766162	5	5	5	-54032295	4.512960988289372	0.7883080840110779	-1.0806459E7	0.9025921976578744	0.15766161680221558
+166298794	0.5647112479442	0.15766162	5	5	5	831493970	2.8235562397210003	0.7883080840110779	1.66298794E8	0.5647112479442	0.15766161680221558
+497043231	0.7464247223405551	0.15766162	5	5	5	2485216155	3.7321236117027756	0.7883080840110779	4.97043231E8	0.7464247223405551	0.15766161680221558
+806515876	0.5647112479442	0.15766162	5	5	5	4032579380	2.8235562397210003	0.7883080840110779	8.06515876E8	0.5647112479442	0.15766161680221558
+806515876	0.7647112479442	0.2576616	5	5	5	4032579380	3.823556239721	1.2883080542087555	8.06515876E8	0.7647112479442	0.2576616108417511
+1419354378	0.5647112479442	0.15766162	5	5	5	7096771890	2.8235562397210003	0.7883080840110779	1.419354378E9	0.5647112479442	0.15766161680221558
+2025324926	0.5647112479442	0.15766162	5	5	5	10126624630	2.8235562397210003	0.7883080840110779	2.025324926E9	0.5647112479442	0.15766161680221558
+---------------------------
+sql: select inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl where id>15 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl where inttype=inttype1 and doubleType=doubleType1 and floatType=floatType1 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl where id>15 group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select distinct inttype, doubleType, floatType, count(distinct inttype1) cnt, count(distinct doubleType1) cnt1, count(distinct floatType1) cnt2, sum(distinct inttype1) s, sum(distinct doubleType1) s1, sum(distinct floatType1) s2, avg(distinct inttype1) a, avg(distinct doubleType1) a1, avg(distinct floatType1) a2 from orctbl group by inttype, doubleType, floatType having cnt>1 order by inttype, doubleType, floatType
+meta: 0,2,2,0,0,0,0,2,2,2,2,2
+exception: 
+
+---------------------------
+sql: select decimalType, longType, byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType from orctbl where id>15 group by decimalType, longType, byteTypee having byteType>0 order by decimalType, longType, byteType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:95 Invalid table alias or column reference: (possible column names are: id, inttype, inttype1, doubletype, doubletype1, floattype, floattype1, decimaltype, decimaltype1, stringtype, stringtype1, varchar32type, varchar32type1, longtype, longtype1, bytetype, bytetype1, shorttype, shorttype1, booleantype, booleantype1, datetype, datetype1, timestamptype, timestamptype1). Error encountered near token 'byteTypee'
+
+---------------------------
+sql: select decimalType, longType, byteType from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl where id>15 group by decimalType, longType, byteTypee having byteType>0 order by decimalType, longType, byteType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10034] SELECT DISTINCT expression not in GROUP BY key
+
+---------------------------
+sql: select distinct decimalType, longType, byteType from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	5	5	5	-3731882185.995321025	259807545840326703	80	-746376437.199064205	7.4306591386518845E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	5	5	5	1037347734.30156492	307456279764713719	530	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	5	5	5	10437347734.30156492	307461279764713719	70	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl where id>15 group by decimalType, longType, byteTypee having byteType>0 order by decimalType, longType, byteType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:408 Invalid table alias or column reference: (possible column names are: id, inttype, inttype1, doubletype, doubletype1, floattype, floattype1, decimaltype, decimaltype1, stringtype, stringtype1, varchar32type, varchar32type1, longtype, longtype1, bytetype, bytetype1, shorttype, shorttype1, booleantype, booleantype1, datetype, datetype1, timestamptype, timestamptype1). Error encountered near token 'byteTypee'
+
+---------------------------
+sql: select decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	5	5	5	-3731882185.995321025	259807545840326703	80	-746376437.199064205	7.4306591386518845E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	5	5	5	1037347734.30156492	307456279764713719	530	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	5	5	5	10437347734.30156492	307461279764713719	70	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	5	5	5	-3731882185.995321025	259807545840326703	80	-746376437.199064205	7.4306591386518845E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	5	5	5	1037347734.30156492	307456279764713719	530	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	5	5	5	10437347734.30156492	307461279764713719	70	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl where id>15 group by decimalType, longType, byteTypee having byteType>0 order by decimalType, longType, byteType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10004] Line 1:417 Invalid table alias or column reference: (possible column names are: id, inttype, inttype1, doubletype, doubletype1, floattype, floattype1, decimaltype, decimaltype1, stringtype, stringtype1, varchar32type, varchar32type1, longtype, longtype1, bytetype, bytetype1, shorttype, shorttype1, booleantype, booleantype1, datetype, datetype1, timestamptype, timestamptype1). Error encountered near token 'byteTypee'
+
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(decimalType1) cnt, count(longType1) cnt1, count(byteType1) cnt2, sum(decimalType1) s, sum(longType1) s1, sum(byteType1) s2, avg(decimalType1) a, avg(longType1) a1, avg(byteType1) a2, min(decimalType1) mi, min(longType1) mi1, min(byteType1) mi2, max(decimalType1) ma, max(longType1) ma1, max(byteType1) ma2 from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	5	5	5	-3731882185.995321025	259807545840326703	80	-746376437.199064205	7.4306591386518845E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	5	5	5	1037347734.30156492	307456279764713719	530	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	5	5	5	10437347734.30156492	307461279764713719	70	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl where id>15 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl where decimalType=decimalType1 and longType=longType1 and byteType=byteType1 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl where id>15 group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select distinct decimalType, longType, byteType, count(distinct decimalType1) cnt, count(distinct longType1) cnt1, count(distinct byteType1) cnt2, sum(distinct decimalType1) s, sum(distinct longType1) s1, sum(distinct byteType1) s2, avg(distinct decimalType1) a, avg(distinct longType1) a1, avg(distinct byteType1) a2, min(distinct decimalType1) mi, min(distinct longType1) mi1, min(distinct byteType1) mi2, max(distinct decimalType1) ma, max(distinct longType1) ma1, max(distinct byteType1) ma2 from orctbl group by decimalType, longType, byteType having byteType>0 order by decimalType, longType, byteType
+meta: 5,0,0,0,0,0,5,0,0,5,2,2,5,0,0,5,0,0
+exception: 
+-746376437.199064205	7430659138651885987	16	1	1	1	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7.4306591386518856E18	16.0	-746376437.199064205	7430659138651885987	16	-746376437.199064205	7430659138651885987	16
+207469546.860312984	3750840070694853067	106	1	1	1	207469546.860312984	3750840070694853067	106	207469546.860312984	3.7508400706948531E18	106.0	207469546.860312984	3750840070694853067	106	207469546.860312984	3750840070694853067	106
+2087469546.860312984	3750841070694853067	14	1	1	1	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3.7508410706948531E18	14.0	2087469546.860312984	3750841070694853067	14	2087469546.860312984	3750841070694853067	14
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	5	5	5	23050	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	3	3	3	13830	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	5	5	5	23050	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	5	5	5	23050	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	3	3	3	13830	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(shortType1) cnt, count(stringType1) cnt1, count(varchar32Type1) cnt2, sum(shortType1) s, sum(stringType1) s1, sum(varchar32Type1) s2, avg(shortType1) a, avg(stringType1) a1, avg(varchar32Type1) a2, min(shortType1) mi, min(stringType1) mi1, min(varchar32Type1) mi2, max(shortType1) ma, max(stringType1) ma1, max(varchar32Type1) ma2 from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	5	5	5	23050	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl where shortType=shortType1 and stringType=stringType1 and varchar32Type=varchar32Type1 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl where id>15 group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select distinct shortType, stringType, varchar32Type, count(distinct shortType1) cnt, count(distinct stringType1) cnt1, count(distinct varchar32Type1) cnt2, sum(distinct shortType1) s, sum(distinct stringType1) s1, sum(distinct varchar32Type1) s2, avg(distinct shortType1) a, avg(distinct stringType1) a1, avg(distinct varchar32Type1) a2, min(distinct shortType1) mi, min(distinct stringType1) mi1, min(distinct varchar32Type1) mi2, max(distinct shortType1) ma, max(distinct stringType1) ma1, max(distinct varchar32Type1) ma2 from orctbl group by shortType, stringType, varchar32Type having shortType>0 order by shortType, stringType, varchar32Type
+meta: 0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0
+exception: 
+4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	1	1	1	4610	0.0	0.0	4610.0	NULL	NULL	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI	4610	XLdV0xQdaGHTroBisrnnSHjspINJfH	O09SsbkI
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 0,0,0
+exception: 
+2031-08-08	false	1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl where id>15 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 0,0,0
+exception: 
+2031-08-08	false	1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType from orctbl group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 0,0,0
+exception: 
+2031-08-08	false	1992-01-21 22:14:13.0
+---------------------------
+sql: select dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl where id>15 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl where id>15 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(dateType1) cnt, count(booleanType1) cnt1, count(timestampType1) cnt2, sum(dateType1) s, sum(booleanType1) s1, sum(timestampType1) s2, avg(dateType1) a, avg(booleanType1) a1, avg(timestampType1) a2, min(dateType1) mi, min(booleanType1) mi1, min(timestampType1) mi2, max(dateType1) ma, max(booleanType1) ma1, max(timestampType1) ma2 from orctbl group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl where id>15 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl where dateType=dateType1 and booleanType=booleanType1 and timestampType=timestampType1 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl where id>15 group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
+---------------------------
+sql: select distinct dateType, booleanType, timestampType, count(distinct dateType1) cnt, count(distinct booleanType1) cnt1, count(distinct timestampType1) cnt2, sum(distinct dateType1) s, sum(distinct booleanType1) s1, sum(distinct timestampType1) s2, avg(distinct dateType1) a, avg(distinct booleanType1) a1, avg(distinct timestampType1) a2, min(distinct dateType1) mi, min(distinct booleanType1) mi1, min(distinct timestampType1) mi2, max(distinct dateType1) ma, max(distinct booleanType1) ma1, max(distinct timestampType1) ma2 from orctbl group by dateType, booleanType, timestampType having booleanType=false order by dateType, booleanType, timestampType
+meta: 
+exception: COMPILE FAILED: Semantic error: [Error 10451] Only numeric or string type arguments are accepted but date is passed.
+
